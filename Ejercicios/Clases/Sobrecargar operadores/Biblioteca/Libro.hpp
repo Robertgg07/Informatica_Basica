@@ -8,7 +8,7 @@ class Libro{
     public:
 
     //Constructor
-
+    Libro(); //Por defecto
     Libro(std::string titulo,double precio);
 
     //Getters
@@ -22,8 +22,8 @@ class Libro{
     void set_precio(double precio);
 
     //Métodos
-    void GuardarEnFichero(std::ofstream& fichero) const;
-    void LeerDeFichero(std::ifstream& fichero);
+    void guardar_fichero(std::ofstream& fichero) const ;
+    void leer_fichero(std::ifstream& fichero);
 
     private:
     std::string titulo_;

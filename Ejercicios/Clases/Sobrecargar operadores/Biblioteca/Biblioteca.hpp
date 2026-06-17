@@ -8,7 +8,7 @@
 class Biblioteca {
     public:
     //Constructor
-
+    Biblioteca();
     Biblioteca(std::vector<Libro> libro);
 
     //Getters
@@ -21,9 +21,9 @@ class Biblioteca {
 
     //Métodos
 
-    void añadir_libro() const;
+    void añadir_libro(const Libro& libro);
     void mostrar_todos_libros() const;
-    bool buscar_libro() const;
+    bool buscar_libro(const std::string& titulo) const;
     double precio_total() const;
 
     private:

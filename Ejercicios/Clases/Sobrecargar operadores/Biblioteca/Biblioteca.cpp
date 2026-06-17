@@ -5,7 +5,7 @@
 
 Biblioteca::Biblioteca(const std::vector<Libro> libro):
     libro_{libro} {}
-
+Biblioteca::Biblioteca() {}
 
 //Getters
 
@@ -21,8 +21,8 @@ void Biblioteca::set_libro(const std::vector<Libro> libro){
 
 //Métodos
 
-void Biblioteca::añadir_libro() const{
-
+void Biblioteca::añadir_libro(const Libro& libro){
+    libro_.push_back(libro);
 }
 
 void Biblioteca::mostrar_todos_libros() const{
@@ -31,20 +31,19 @@ void Biblioteca::mostrar_todos_libros() const{
     }
 }
 
-bool Biblioteca::buscar_libro() const{
-    std::string titulo_;
-    for(int i{0}; i < libro_.size(); i++){
-        if( libro_[i] == titulo_){
+bool Biblioteca::buscar_libro(const std::string& titulo) const {
+    for (int i = 0; i < libro_.size(); i++) {
+        if (libro_[i].get_titulo() == titulo) {
             return true;
-        } else {
-            return false;
         }
     }
+    return false;
 }
 
 double Biblioteca::precio_total() const{
     double precio{0};
     for(int i{0}; i < libro_.size(); i++){
-        precio += libro_[i];
+        precio += libro_[i].get_precio();
     }
+    return precio;
 }
